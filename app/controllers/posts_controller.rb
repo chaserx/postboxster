@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(params[:post])
+    #@post.picture_content_type = MIME::Types.type_for(@post.picture_file_name).to_s
     if @post.save
       flash[:notice] = "Successfully created post."
       redirect_to @post
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
+    #@post.picture_content_type = MIME::Types.type_for(@post.picture_file_name).to_s
     if @post.update_attributes(params[:post])
       flash[:notice] = "Successfully updated post."
       redirect_to @post

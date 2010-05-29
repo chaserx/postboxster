@@ -1,8 +1,9 @@
-<% form_for @post do |f| %>
+<% form_for @post, :html => {:multipart => true} do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title %><br />
+    <%= f.file_field :picture %>
   </p>
   <p><%= f.submit %></p>
 <% end %>
