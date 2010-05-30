@@ -1,0 +1,2 @@
+module LatestPostHelper
+end

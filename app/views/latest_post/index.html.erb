@@ -1,0 +1,11 @@
+<% title "Latest Post", false %>
+<div id="centered">
+  <% for post in @posts %>
+  <h1><%= post.title %></h1>
+  <div id="attachment">
+    <%= image_tag post.picture.url %>
+  </div>
+  <% end %>
+  <br />
+  <div><%= will_paginate @posts, :page_links => false %></div>
+</div>

@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-
+  #for pagination
+  cattr_reader :per_page
+  @@per_page = 1
   
   #has_attached_file :picture, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :path => ":attachment/:id/:style.:extension", :url => ":attachment/:id/:style.:extension"
   #has_attached_file :picture
