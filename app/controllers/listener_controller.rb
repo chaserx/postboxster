@@ -12,10 +12,10 @@ class ListenerController < ApplicationController
     respond_to do |format|
       if @inbound_email.save && request.post?
         flash[:notice] = 'Sucessful Post.'
-        format.xml { render => @inbound_email.xml, :status => :created  }
+        format.xml { render :xml => @inbound_email.xml, :status => :created  }
       else
         flash[:error] = 'There was an error with saving the post'
-        format.xml { render => @inbound_email.xml.errors, :status => :unprocessable_entry }
+        format.xml { render :xml => @inbound_email.errors, :status => :unprocessable_entry }
       end
     end
   
