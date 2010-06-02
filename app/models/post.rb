@@ -11,4 +11,8 @@ class Post < ActiveRecord::Base
                   :storage => :s3,
                   :s3_credentials => File.join(Rails.root, 'config', 's3.yml'),
                   :bucket => "postbox-#{RAILS_ENV}"
+  
+  validates_attachment_content_type :picture, :content_type => ['image/gif', 'image/jpeg', 'image/png'], :on => :create, :unless => Proc.new { |post| post.picture_file_name.nil? }
+  validates_attachment_size :picture, :less_than => 5.megabytes, :on => :create, :unless => Proc.new { |post| post.picture_file_name.nil? }, :message => "file must be less than 5 MB"
+  
 end

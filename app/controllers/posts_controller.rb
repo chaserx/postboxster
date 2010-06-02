@@ -52,10 +52,10 @@ class PostsController < ApplicationController
 
     def authenticate
       authenticate_or_request_with_http_basic do |username, password|
-        username == PASSWORDS_CONFIG[:username] &&
+        username == PASSWORDS_CONFIG[:user] &&
         Digest::SHA1.hexdigest(password) == PASSWORDS_CONFIG[:password]
       end
     end
-  end
+
   
 end
