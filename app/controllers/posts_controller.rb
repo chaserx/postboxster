@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  require 'digest/sha1'
   
   before_filter :authenticate, :only => [:destroy, :update, :edit, :index]
   
