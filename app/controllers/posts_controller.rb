@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  
+  before_filter :authenticate, :only => [:destroy, :update, :edit, :index]
+  
   def index
     @posts = Post.all
   end
@@ -43,4 +46,15 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
+  
+  private
+
+    def authenticate
+      authenticate_or_request_with_http_basic do |username, password|
+        username == PASSWORDS_CONFIG[:username] &&
+        Digest::SHA1.hexdigest(password) == PASSWORDS_CONFIG[:password]
+      end
+    end
+  end
+  
 end
