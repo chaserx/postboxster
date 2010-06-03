@@ -10,13 +10,14 @@ Add into your repository:
 
 1) .gems file
 
-right_aws --version '2.0.0'
-paperclip --version '2.1.2'
-will_paginate --version '2.3.11'
+right_aws --version '2.0.0'  
+paperclip --version '2.1.2'  
+will_paginate --version '2.3.11'  
+
 
 ====
 
-2) configuration yml files
+2) configuration yml files (see example files)
 
 * s3.yml
 * passwords_config.yml
@@ -24,6 +25,8 @@ will_paginate --version '2.3.11'
 ## Tutorial
 
 http://nanceskitchen.com/2010/02/21/accept-incoming-emails-into-a-heroku-app-using-sendgrid/
+
+Very helpful. Attribution: the method for receiving email comes from the code presented in this post. 
 
 
 ## Notes
